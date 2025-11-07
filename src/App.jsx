@@ -3,16 +3,16 @@ import React from "react";
 import clpJobs from "./assets/clpjobs.png";
 
 // images
-import movingImg from "./assets/moving.webp";
-import cleanImg from "./assets/clean.webp";
-import outdoorImg from "./assets/outdoor.webp";
-import propertyImg from "./assets/property.webp";
-import somethingImg from "./assets/something.webp";
-import howImg from "./assets/550.webp";
+import movingImg from "./assets/moving.png";
+import cleanImg from "./assets/clean.png";
+import outdoorImg from "./assets/outdoor.png";
+import propertyImg from "./assets/property.png";
+import somethingImg from "./assets/something.png";
+import howImg from "./assets/550.png";
 
-import clpPeople1 from "./assets/clppeople.webp";
-import clpPeople2 from "./assets/clppeople2.webp";
-import clpPeople3 from "./assets/clppeople3.webp";
+import clpPeople1 from "./assets/clppeople.png";
+import clpPeople2 from "./assets/clppeople2.png";
+import clpPeople3 from "./assets/clppeople3.png";
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -232,6 +232,7 @@ function TaskCategories() {
   };
 
   const [active, setActive] = React.useState(options[0]);
+  const previewRef = React.useRef(null);
 
   return (
     <section className="bg-white pt-16 sm:pt-20 lg:pt-24 pb-0 sm:pb-20 lg:pb-20">
@@ -249,7 +250,10 @@ function TaskCategories() {
         {/* body */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* left preview */}
-          <div className="flex-1 rounded-3xl border border-slate-100 bg-slate-50/60 overflow-hidden flex flex-col">
+          <div
+            ref={previewRef}
+            className="flex-1 rounded-3xl border border-slate-100 bg-slate-50/60 overflow-hidden flex flex-col"
+          >
             <div className="relative h-52 sm:h-56 md:h-64 lg:h-[420px] xl:h-[460px]">
               <img
                 src={active.image}
@@ -289,7 +293,7 @@ function TaskCategories() {
                 href={BOOKING_URL}
                 className="w-full sm:w-auto flex justify-center sm:justify-start rounded-full bg-slate-900 text-white px-6 py-3 text-base font-semibold hover:bg-slate-800 transition inline-flex items-center gap-1.5"
               >
-                Book
+                This is my job
                 <span aria-hidden="true">→</span>
               </a>
 
@@ -308,7 +312,15 @@ function TaskCategories() {
                 <button
                   key={item.id}
                   type="button"
-                  onClick={() => setActive(item)}
+                  onClick={() => {
+                    setActive(item);
+                    if (typeof window !== "undefined" && window.innerWidth < 1024 && previewRef.current) {
+                      previewRef.current.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }
+                  }}
                   className={`group w-full flex items-start sm:items-center gap-4 rounded-2xl border transition py-6 lg:py-7 min-h-[110px]
                     ${
                       isActive
