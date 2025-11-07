@@ -3,16 +3,16 @@ import React from "react";
 import clpJobs from "./assets/clpjobs.png";
 
 // images
-import movingImg from "./assets/moving.png";
-import cleanImg from "./assets/clean.png";
-import outdoorImg from "./assets/outdoor.png";
-import propertyImg from "./assets/property.png";
-import somethingImg from "./assets/something.png";
-import howImg from "./assets/550.png";
+import movingImg from "./assets/moving.webp";
+import cleanImg from "./assets/clean.webp";
+import outdoorImg from "./assets/outdoor.webp";
+import propertyImg from "./assets/property.webp";
+import somethingImg from "./assets/something.webp";
+import howImg from "./assets/550.webp";
 
-import clpPeople1 from "./assets/clppeople.png";
-import clpPeople2 from "./assets/clppeople2.png";
-import clpPeople3 from "./assets/clppeople3.png";
+import clpPeople1 from "./assets/clppeople.webp";
+import clpPeople2 from "./assets/clppeople2.webp";
+import clpPeople3 from "./assets/clppeople3.webp";
 
 import { motion, AnimatePresence } from "framer-motion";
 
